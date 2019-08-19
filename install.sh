@@ -8,6 +8,7 @@ wget https://raw.githubusercontent.com/chabad360/argos-installer/master/add-argo
 chmod 755 /usr/bin/add-argos
 
 wget https://raw.githubusercontent.com/chabad360/argos-installer/master/argos.desktop -O /usr/share/applications/argos.desktop
+chmod 644 /usr/share/applications/argos.desktop
 
 sleep 5s
 

@@ -1,9 +1,10 @@
 # Argos URI handler for `bitbar://`
 
 This project allows you to install BitBar/Argos plugins from a Web Browser directly to your system, no terminal involved!
-___
 
 ## Installation
+
+This package can be installed from the AUR [argos-uri-installer-git](https://aur.archlinux.org/packages/argos-uri-installer-git/), or you can follow the following steps:S
 
 ### 1. Install Script
 
