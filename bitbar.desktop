@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=BitBar Scheme Handler
-Exec=/usr/bin/add-argos.sh %u
-StartupNotify=false
-MimeType=x-scheme-handler/bitbar;

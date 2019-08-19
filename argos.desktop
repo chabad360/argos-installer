@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Argos Plugin Installer
+Exec=/usr/bin/add-argos %u
+StartupNotify=false
+MimeType=x-scheme-handler/bitbar;MimeType=x-scheme-handler/argos;
