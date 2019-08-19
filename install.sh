@@ -2,6 +2,8 @@
 
 set -x
 
+sleep 1
+
 wget https://raw.githubusercontent.com/chabad360/argos-installer/master/add-argos -O /usr/bin/add-argos
 chmod 755 /usr/bin/add-argos
 
