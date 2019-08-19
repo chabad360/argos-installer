@@ -1,7 +1,7 @@
 #!/bin/bash
 
 user=$(whoami) # User that's installing said extension
-argos="/home/$user/.config/argos" # Argos script folder
+argos="/home/$user/.config/argos" # Argos Plugin folder
 
 function zenityc () { # Prevents script from dying if zenity isn't present
     if [ "$(command -v zenity)" ]; then
@@ -11,7 +11,7 @@ function zenityc () { # Prevents script from dying if zenity isn't present
     fi
 }
 
-if [[ "$1" == "bitbar:"* ]]; then
+if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
     title=${1#*title=}
     title=${title%%&amp;*}
     title=$(python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))" "$title") # Decode Title
