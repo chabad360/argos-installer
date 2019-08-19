@@ -13,7 +13,7 @@ function zenityc () { # Prevents script from dying if zenity isn't present
 
 if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
     title=${1#*title=}
-    title=${title%%&amp;*}
+    title=${title%%&*}
     title=$(python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))" "$title") # Decode Title
 
     ref=${1#*src=}
@@ -23,7 +23,7 @@ if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
 
     if echo "$title" | grep "src="; then # Ensure an ordinary title
         title=$script
-    elif ! "$title"; then
+    elif [ ! "$title" ]; then
         title=$script
     fi
 
