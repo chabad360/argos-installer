@@ -1,4 +1,3 @@
-
 # Argos URI handler for `bitbar://`
 
 This project allows you to install BitBar/Argos plugins from a Web Browser directly to your system, no terminal involved!
@@ -24,7 +23,7 @@ ___
 
 ## Info
 
-### Button Source:
+### Button Source
 
 ```markdown
 [![Add to Argos](https://img.shields.io/static/v1?style=for-the-badge&logo=addthis&message=Add+to+Argos&color=green&logoColor=white&label=&link="bitbar://openPlugin?title=<YOUR PLUGIN NAME HERE (OPTIONAL)>&src=https://<LINK.TO/PLUGIN.SH>")](<SHORTENED LINK>)
