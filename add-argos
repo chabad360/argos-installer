@@ -27,7 +27,7 @@ if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
         title=$script
     fi
 
-    if ! zenityc --question --title="Argos Plugin Installer" --text="Add plugin <b>$title</b> from <b><tt>$ref</tt></b>?\n\n<b><u>Make sure it's origin is trusted\!</u></b>" --ellipsize; then
+    if ! zenityc --question --title="Argos Plugin Installer" --text="<big>Add plugin <b>$title</b>?</big>\n\n<b><u>Make sure its source is trusted\!</u></b>\n<small><b>Source: <tt>$ref</tt></b></small>" --ellipsize; then
         zenityc --error --text="Installation cancelled" --ellipsize
         exit 1
     fi
