@@ -1,4 +1,4 @@
-Installs a URI handler for `bitbar://`. This allows you to install BitBar/Argos plugins from a Web Browser to your system.
+##### Installs a URI handler for `bitbar://`. This allows you to install BitBar/Argos plugins from a Web Browser to your system.
 ---
 
 To install simply run:
