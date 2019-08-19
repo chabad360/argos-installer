@@ -28,7 +28,7 @@ if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
     fi
 
     if ! zenityc --question --title="Argos Plugin Installer" --text="Are you sure you want to install \"$title\" from $ref" --ellipsize; then
-        zenityc --error --text="Installation cancelled"
+        zenityc --error --text="Installation cancelled" --ellipsize
         exit 1
     fi
 
@@ -42,7 +42,7 @@ if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
     chmod 755 "$argos/$script" 
     
     echo "Installed $script succesfully!"
-    zenityc --info --title="Argos Plugin Installer" --text="Installed $script succesfully!"
+    zenityc --info --title="Argos Plugin Installer" --text="Installed $script succesfully!" --ellipsize
 
 else
     xdg-open "$1" # Just open with the default handler
