@@ -17,4 +17,18 @@ To make sure it works, wait a minute, refresh the page, and press this button.
 
 If that doesn't work open this link: `bitbar://openPlugin?title=Cycle%20text%20and%20detail%20text&src=https://github.com/matryer/bitbar-plugins/raw/master/Tutorial%2fcycle_text_and_detail.sh`
 
+___
+
+### About Installation Links
+
 In order to include `bitbar://` links in github, I reccomend [bit.do](bit.do), it's the only free url shortning service I could find that didn't require an account and let me use `bitbar://` as a URI schema.
+
+___
+
+### The Schema
+
+```uri
+
+bitbar://openPlugin?title=<YOUR PLUGIN TITLE HERE (OPTIONAL)>&src=<FULL LINK TO PLUGIN FILE>
+
+```
