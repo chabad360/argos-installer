@@ -13,7 +13,13 @@ curl https://raw.githubusercontent.com/chabad360/argos-installer/master/install.
 
 To make sure it works, wait a minute, refresh the page, and press this button.
 
-[![Add to Argos](https://img.shields.io/static/v1?style=for-the-badge&logo=addthis&message=Add%20%20to%20Argos&color=green&logoColor=white&label=&link="bitbar://openPlugin?title=Cycle%20text%20and%20detail%20text&src=https://github.com/matryer/bitbar-plugins/raw/master/Tutorial%2fcycle_text_and_detail.sh")](http://bit.do/e4QZ9)
+[![Add to Argos](https://img.shields.io/static/v1?style=for-the-badge&logo=addthis&message=Add+to+Argos&color=green&logoColor=white&label=&link="bitbar://openPlugin?title=Cycle%20text%20and%20detail%20text&src="https://github.com/matryer/bitbar-plugins/raw/master/Tutorial%2fcycle_text_and_detail.sh")](http://bit.do/e4QZ9)
+
+Button Source:
+
+```markdown
+[![Add to Argos](https://img.shields.io/static/v1?style=for-the-badge&logo=addthis&message=Add+to+Argos&color=green&logoColor=white&label=&link="bitbar://openPlugin?title=<YOUR PLUGIN NAME HERE (OPTIONAL)>&src=https://<LINK.TO/PLUGIN.SH>")](<SHORTENED LINK>)
+```
 
 If that doesn't work open this link: `bitbar://openPlugin?title=Cycle%20text%20and%20detail%20text&src=https://github.com/matryer/bitbar-plugins/raw/master/Tutorial%2fcycle_text_and_detail.sh`
 
@@ -29,6 +35,6 @@ ___
 
 ```uri
 
-bitbar://openPlugin?title=<YOUR PLUGIN TITLE HERE (OPTIONAL)>&src=<FULL LINK TO PLUGIN FILE>
+bitbar://openPlugin?title=<YOUR PLUGIN NAME HERE (OPTIONAL)>&src=https://<LINK.TO/PLUGIN.SH>
 
 ```
