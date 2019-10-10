@@ -32,7 +32,7 @@ ___
 
 ### Showing Installation Links in Github
 
-Github by defualt disables not standard URI's in READMEs, so in order to include `bitbar://` links in github, I reccomend using the [bit.do](bit.do) URL Shortner.
+Github by defualt disables not standard URI's in READMEs, so in order to include `bitbar://` links in github, I recommend using the [bit.do](bit.do) URL Shortner.
 It's the only free url shortning service I could find that didn't require an account and let me use `bitbar://` as a URI schema.
 
 ### The Schema
