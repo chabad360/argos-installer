@@ -19,13 +19,23 @@ jobs:
           name: argos-installer
           version: ${{ env.RELEASE_VERSION }}
           arch: x86_64
-          format: rpm,deb
+          format: deb
           package: package.yaml
+
+      - uses: kentik/pkg@v1.0.0-rc6
+        with:
+          name: argos-installer
+          version: ${{ env.RELEASE_VERSION }}
+          arch: x86_64
+          format: rpm
+          package: package.yaml
+
       - uses: actions/upload-artifact@v2
         with:
           name: artifact-deb
           path: |
             ./*.deb
+
       - uses: actions/upload-artifact@v2
         with:
           name: artifact-rpm
