@@ -22,4 +22,4 @@ files:
     mode: "0644"
     user: "root"
 scripts:
-  postinstall: post-install
+  post-install: post-install
