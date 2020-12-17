@@ -1,0 +1,25 @@
+meta:
+  name: argos-installer
+  description: Argos Bitbar URI Installer
+  vendor: chabad360
+  maintainer: chabad360
+  homepage: https://github.com/chabad360/argos-installer
+  license: GPL-3.0
+depends:
+  - bash
+  - gnome-shell
+  - grep
+  - wget
+  - xdg-open
+  - zenity
+files:
+  "/usr/bin/add-argos":
+    file: add-argos
+    mode: "0755"
+    user: "root"
+  "/usr/share/applications/argos.desktop":
+    file: argos.desktop
+    mode: "0644"
+    user: "root"
+scripts:
+  postinstall: post-install
