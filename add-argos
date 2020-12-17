@@ -11,14 +11,20 @@ function zenityc () { # Prevents script from dying if zenity isn't present
     fi
 }
 
-if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
-    title=${1#*title=}
-    title=${title%%&*}
-    title=$(python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))" "$title") # Decode Title
+function uriextract() {
+    arg="${1#*${2}=}"
+    printf '%s' "${arg%%&*}"
+}
 
-    ref=${1#*src=}
-    ref=$(python -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))" "$ref") # Decode Url
-    
+function uridecode() {
+    input="${1//+/ }" # + is usually space
+    printf '%b' "${input//%/\\x}" # convert to unicode \x[charid]
+}
+
+if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
+    title=$(urldecode $(uriextract "$1" 'title')) # Decode Title
+    ref=$(urldecode $(uriextract "$1" 'src')) # Decode Source Url
+
     script=${ref##*/}
 
     if echo "$title" | grep "src="; then # Ensure an ordinary title
@@ -39,9 +45,8 @@ if [[ "$1" == "bitbar:"* || "$1" == "argos:"* ]]; then
 
     wget "$ref" -O "$argos/$script" # Download Script
     chmod 755 "$argos/$script"
-    
-    zenityc --info --title="Argos Plugin Installer" --text="Installed <b>$script</b> succesfully!" --ellipsize
 
+    zenityc --info --title="Argos Plugin Installer" --text="Installed <b>$script</b> succesfully!" --ellipsize
 else
     xdg-open "$1" # Just open with the default handler
 fi
