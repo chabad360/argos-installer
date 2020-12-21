@@ -1,0 +1,71 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Get that version number
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      
+      - uses: kentik/pkg@v1.0.0-rc6
+        with:
+          name: argos-installer
+          version: ${{ env.RELEASE_VERSION }}
+          arch: x86_64
+          format: deb
+          package: package.yaml
+
+      - uses: kentik/pkg@v1.0.0-rc6
+        with:
+          name: argos-installer
+          version: ${{ env.RELEASE_VERSION }}
+          arch: x86_64
+          format: rpm
+          package: package.yaml
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact-deb
+          path: |
+            ./*.deb
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: artifact-rpm
+          path: |
+            ./*.rpm
+            !./*-debuginfo-*.rpm
+  create-release:
+    runs-on: ubuntu-latest
+    needs: package
+    strategy:
+      matrix:
+        include:
+          - pkg: deb
+            asset_content_type: application/vnd.debian.binary-package
+          - pkg: rpm
+            asset_content_type: application/x-rpm
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/download-artifact@v2
+        with:
+          name: artifact-${{ matrix.pkg }}
+      - id: vars
+        run: |
+          echo "::set-output name=asset_name::$(ls *.${{ matrix.pkg }} | head -n 1)"
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: ncipollo/release-action@v1.7.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifact: ${{ steps.vars.outputs.asset_name }}
+          artifactContentType: ${{ matrix.asset_content_type }}
+          allowUpdates: true
+          replacesArtifacts: false
